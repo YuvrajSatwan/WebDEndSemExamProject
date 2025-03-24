@@ -1,117 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    
+    <title>Task Manager</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 
     <style type="text/css">
-
+        .task-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 350px;
+            margin: 50px auto;
+        }
     </style>
-
-    <script type="text/javascript">
-         function bookTicket() {
-                console.log("Function is triggered...");
-            
-                document.getElementById("displaySummary").style.display = "block";
-                
-                document.getElementById("lblMovie").textContent = document.getElementById("lstMovies").value;
-                
-
-               
-
-
-
-             
-            }
-            function Delete() {
-                document.getElementById("lblMovie").textContent = document.getElementById("lstMovies").value=""
-
-                
-
-
-
-             
-            }
-            
-         
-          
-    </script>
 </head>
-<body>
-    <body class="container-fluid">
-
-    
-        
-        <!-- Modal -->
-        <div class=" " id="booking">
-   
-          <div class="modal-dialog modal-fullscreen">
-   
-            <div class="modal-content">
-           
-              <!-- Modal Header-->
-              <div class="modal-header" style="text-align: center;">
-                <h3>Add Tasks</h3>
-                
-              </div>
-   
-              <!-- Modal Body-->
-              <div class="modal-body">
-                <nav class="d-flex justify-content-between p-1 bg-light text-light p-3 ">
-                   <div>
-                       <input id="lstMovies" class="inp">
-                           
-                   </div>
-                   
-                   <div>
-                       <!-- triggering the script upon clicking the button-->
-                       <button class="btn btn-success" 
-                               data-bs-dismiss="modal"
-                               onclick="bookTicket()">
-                               Add
-                       </button>
-                   </div>
-                </nav>
-              </div>
-   
-              <!-- Modal Footer-->
-             
-            </div>
-          </div>
+<body class="bg-light">
+    <!-- Task Manager box -->
+    <div class="task-box">
+        <!-- Title with icon -->
+        <h3 class="mb-3">
+            <i class="bi bi-list-task"></i> Task Manager
+        </h3>
+        <!-- Input field and Add Task button -->
+        <div class="input-group mb-3">
+            <input id="lstMovies" class="form-control" placeholder="Enter a task...">
+            <button class="btn btn-success" onclick="addTask()">Add Task</button>
         </div>
+     
+        <div id="displaySummary">
+            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <span>wake up early morning</span>
+                <button class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">Delete</button>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <span>Do yoga for 30min</span>
+                <button class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">Delete</button>
+            </div>
+        </div>
+    </div>
 
-        <div class="w-25" id="displaySummary" style="display: none;">
-            
-            
-    
-             
-    
-                
-                <p id="lblMovie" >  </p>
-               
-    
-              
-                <button class="btn btn-danger" 
-                data-bs-dismiss="modal"
-                onclick="Delete()">
-                Delete
-        </button>
-         </div>
-    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        function addTask() {
+            // Get the input and task list
+            let input = document.getElementById("lstMovies");
+            let taskList = document.getElementById("displaySummary");
 
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+            // Add new task if input is not empty
+            if (input.value != "") {
+                taskList.innerHTML += `<div class="d-flex justify-content-between align-items-center border-bottom py-2"><span>${input.value}</span><button class="btn btn-danger btn-sm" onclick="this.parentElement.remove()">Delete</button></div>`;
+                input.value = ""; // Clear the input
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
