@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    
+
+    <style type="text/css">
+
+    </style>
+
+    <script type="text/javascript">
+         function bookTicket() {
+                console.log("Function is triggered...");
+            
+                document.getElementById("displaySummary").style.display = "block";
+                
+                document.getElementById("lblMovie").textContent = document.getElementById("lstMovies").value;
+                
+
+               
+
+
+
+             
+            }
+            function Delete() {
+                document.getElementById("lblMovie").textContent = document.getElementById("lstMovies").value=""
+
+                
+
+
+
+             
+            }
+            
+         
+          
+    </script>
+</head>
+<body>
+    <body class="container-fluid">
+
+    
+        
+        <!-- Modal -->
+        <div class=" " id="booking">
+   
+          <div class="modal-dialog modal-fullscreen">
+   
+            <div class="modal-content">
+           
+              <!-- Modal Header-->
+              <div class="modal-header" style="text-align: center;">
+                <h3>Add Tasks</h3>
+                
+              </div>
+   
+              <!-- Modal Body-->
+              <div class="modal-body">
+                <nav class="d-flex justify-content-between p-1 bg-light text-light p-3 ">
+                   <div>
+                       <input id="lstMovies" class="inp">
+                           
+                   </div>
+                   
+                   <div>
+                       <!-- triggering the script upon clicking the button-->
+                       <button class="btn btn-success" 
+                               data-bs-dismiss="modal"
+                               onclick="bookTicket()">
+                               Add
+                       </button>
+                   </div>
+                </nav>
+              </div>
+   
+              <!-- Modal Footer-->
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="w-25" id="displaySummary" style="display: none;">
+            
+            
+    
+             
+    
+                
+                <p id="lblMovie" >  </p>
+               
+    
+              
+                <button class="btn btn-danger" 
+                data-bs-dismiss="modal"
+                onclick="Delete()">
+                Delete
+        </button>
+         </div>
+    
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
